@@ -26,7 +26,7 @@ class Form extends React.Component {
               value={ cardName }
               onChange={ onInputChange }
               type="text"
-              name="name"
+              name="CardName"
               id="name"
             />
           </label>
@@ -36,7 +36,7 @@ class Form extends React.Component {
               value={ cardDescription }
               onChange={ onInputChange }
               type="textarea"
-              name="description"
+              name="CardDescription"
               id="description"
             />
           </label>
@@ -46,7 +46,7 @@ class Form extends React.Component {
               value={ cardAttr1 }
               onChange={ onInputChange }
               type="number"
-              name="attribute1"
+              name="cardAttr1"
               id="attribute1"
             />
           </label>
@@ -56,7 +56,7 @@ class Form extends React.Component {
               value={ cardAttr2 }
               onChange={ onInputChange }
               type="number"
-              name="attribute2"
+              name="cardAttr2"
               id="attribute2"
             />
           </label>
@@ -66,7 +66,7 @@ class Form extends React.Component {
               value={ cardAttr3 }
               onChange={ onInputChange }
               type="number"
-              name="attribute3"
+              name="cardAttr3"
               id="attribute3"
             />
           </label>
@@ -76,13 +76,13 @@ class Form extends React.Component {
               value={ cardImage }
               onChange={ onInputChange }
               type="text"
-              name="attimgibute3"
+              name="cardImage"
               id="img"
             />
           </label>
           <label htmlFor="rare-input">
             <select
-              name="rareCard"
+              name="cardRare"
               id="rare-input"
               data-testid="rare-input"
               value={ cardRare }
@@ -99,7 +99,7 @@ class Form extends React.Component {
               checked={ cardTrunfo }
               onChange={ onInputChange }
               type="checkbox"
-              name="checkbox"
+              name="cardTrunfo"
               id="checkbox"
             />
           </label>
