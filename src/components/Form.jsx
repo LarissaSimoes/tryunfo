@@ -12,10 +12,12 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      // hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+
     return (
       <section>
         <form>
@@ -25,7 +27,7 @@ class Form extends React.Component {
               value={ cardName }
               onChange={ onInputChange }
               type="text"
-              name="CardName"
+              name="cardName"
               id="name"
             />
           </label>
@@ -35,7 +37,7 @@ class Form extends React.Component {
               value={ cardDescription }
               onChange={ onInputChange }
               type="textarea"
-              name="CardDescription"
+              name="cardDescription"
               id="description"
             />
           </label>
