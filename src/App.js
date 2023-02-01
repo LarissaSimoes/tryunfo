@@ -14,12 +14,13 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      // hasTrunfo: false,
+      hasTrunfo: false,
       isSaveButtonDisabled: true,
-      // arrayOfCards: [],
+      arrayOfCards: [],
     };
   }
 
+  // A callback na linha 27 está lá para segurar a função até que o estado seja alterado
   onInputChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -56,6 +57,23 @@ class App extends React.Component {
     });
   };
 
+  CardSaving = (objetoInfo) => {
+    this.setState((prevState) => ({
+      arrayOfCards: [...prevState.arrayOfCards, objetoInfo],
+    }));
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: 'normal',
+      hasTrunfo: true,
+      isSaveButtonDisabled: true,
+    });
+  };
+
   render() {
     const {
       cardName,
@@ -67,6 +85,10 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
+      // eslint-disable-next-line no-unused-vars
+      hasTrunfo,
+      // eslint-disable-next-line no-unused-vars
+      arrayOfCards,
     } = this.state;
 
     return (
@@ -83,6 +105,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.CardSaving }
         />
         <Card
           cardName={ cardName }
