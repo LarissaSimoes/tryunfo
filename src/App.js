@@ -14,7 +14,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      hasTrunfo: false,
+      // hasTrunfo: false,
       isSaveButtonDisabled: true,
       arrayOfCards: [],
     };
@@ -69,7 +69,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
-      hasTrunfo: true,
+      // hasTrunfo: true,
       isSaveButtonDisabled: true,
     });
   };
@@ -85,10 +85,8 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
-      // eslint-disable-next-line no-unused-vars
-      hasTrunfo,
-      // eslint-disable-next-line no-unused-vars
-      arrayOfCards,
+      // hasTrunfo,
+      // arrayOfCards,
     } = this.state;
 
     return (
