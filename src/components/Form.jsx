@@ -12,7 +12,7 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -22,6 +22,7 @@ class Form extends React.Component {
       <section>
         <form>
           <label htmlFor="name">
+            Nome
             <input
               data-testid="name-input"
               value={ cardName }
@@ -32,6 +33,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="description">
+            Descrição
             <input
               data-testid="description-input"
               value={ cardDescription }
@@ -42,6 +44,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attribute1">
+            Attr1
             <input
               data-testid="attr1-input"
               value={ cardAttr1 }
@@ -52,6 +55,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attribute2">
+            Attr2
             <input
               data-testid="attr2-input"
               value={ cardAttr2 }
@@ -62,6 +66,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attribute3">
+            Attr3
             <input
               data-testid="attr3-input"
               value={ cardAttr3 }
@@ -72,6 +77,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="img">
+            Imagem
             <input
               data-testid="image-input"
               value={ cardImage }
@@ -82,6 +88,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="rare-input">
+            Raridade
             <select
               name="cardRare"
               id="rare-input"
@@ -95,14 +102,17 @@ class Form extends React.Component {
             </select>
           </label>
           <label htmlFor="checkbox">
-            <input
+            Super Trunfo
+            {hasTrunfo === false && <input
               data-testid="trunfo-input"
               checked={ cardTrunfo }
               onChange={ onInputChange }
               type="checkbox"
               name="cardTrunfo"
               id="checkbox"
-            />
+            />}
+            {hasTrunfo === true
+             && <span>Você já tem um Super Trunfo em seu baralho</span>}
           </label>
           <button
             data-testid="save-button"
