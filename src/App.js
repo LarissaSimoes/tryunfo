@@ -67,7 +67,7 @@ class App extends React.Component {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo } = this.state;
 
-    this.setState((prevState) => ({arrayOfCards: [...prevState.arrayOfCards, {
+    this.setState((prevState) => ({ arrayOfCards: [...prevState.arrayOfCards, {
       cardName,
       cardDescription,
       cardAttr1,
