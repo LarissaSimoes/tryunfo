@@ -1,3 +1,4 @@
+import { array } from 'prop-types';
 import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
@@ -101,11 +102,11 @@ class App extends React.Component {
       cardTrunfo,
       isSaveButtonDisabled,
       // hasTrunfo,
-      // arrayOfCards,
+      arrayOfCards,
     } = this.state;
 
     return (
-      <div>
+      <section>
         <h1>Tryunfo</h1>
         <Form
           onInputChange={ this.onInputChange }
@@ -132,7 +133,27 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
         />
-      </div>
+
+        { arrayOfCards && (
+          <div>
+            <h1>Todas as cartas</h1>
+            {arrayOfCards.map((card) => (
+              <div key={ card.cardName }>
+                <Card
+                  cardName={ card.cardName }
+                  cardDescription={ card.cardDescription }
+                  cardAttr1={ card.cardAttr1 }
+                  cardAttr2={ card.cardAttr2 }
+                  cardAttr3={ card.cardAttr3 }
+                  cardImage={ card.cardImage }
+                  cardRare={ card.cardRare }
+                  cardTrunfo={ card.cardTrunfo }
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
     );
   }
 }
