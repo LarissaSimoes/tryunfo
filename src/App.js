@@ -14,7 +14,6 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      hasTrunfo: false,
       isSaveButtonDisabled: true,
       arrayOfCards: [],
     };
@@ -57,30 +56,38 @@ class App extends React.Component {
     });
   };
 
-  CardSaving = (objetoInfo) => {
-    this.setState((prevState) => ({
-      arrayOfCards: [...prevState.arrayOfCards, objetoInfo],
-    }));
-    this.setState({
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
-      cardImage: '',
-      cardRare: 'normal',
-      hasTrunfo: this.checkTrunfo,
-      isSaveButtonDisabled: true,
-    });
-  };
-
-  checkTrunfo() {
+  checkTrunfo = () => {
     const { arrayOfCards } = this.state;
     const findTrunfo = arrayOfCards.some((card) => card.cardTrunfo === true);
-    this.setState({
-      hasTrunfo: findTrunfo,
-    });
-  }
+    console.log(findTrunfo);
+    return findTrunfo;
+  };
+
+  CardSaving = () => {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
+      cardImage, cardRare, cardTrunfo } = this.state;
+
+    this.setState((prevState) => ({arrayOfCards: [...prevState.arrayOfCards, {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    }],
+    cardName: '',
+    cardDescription: '',
+    cardAttr1: 0,
+    cardAttr2: 0,
+    cardAttr3: 0,
+    cardImage: '',
+    cardRare: 'normal',
+    cardTrunfo: false,
+    isSaveButtonDisabled: true,
+    }), this.checkTrunfo);
+  };
 
   render() {
     const {
@@ -93,7 +100,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
-      hasTrunfo,
+      // hasTrunfo,
       // arrayOfCards,
     } = this.state;
 
@@ -112,7 +119,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.CardSaving }
-          hasTrunfo={ hasTrunfo }
+          hasTrunfo={ this.checkTrunfo() }
         />
         <Card
           cardName={ cardName }
